@@ -1,5 +1,8 @@
 from tkinter import *
 from PIL import Image, ImageTk
+# from proceso import ProcesoAutomata
+
+
 
 # Funcion para validar combinaciones
 def validar(texto):
@@ -152,6 +155,12 @@ lbl_img_coffee7.grid(row=2, column=0, padx=20,pady=20)
 
 lbl_img_coffee8 = Label(drink_coffee, image=img_coffee1)
 lbl_img_coffee8.grid(row=2, column=2, padx=20,pady=20)
+
+
+
+
+# prueba = ProcesoAutomata("hola")
+# prueba.validarCadena()
 
 
 
