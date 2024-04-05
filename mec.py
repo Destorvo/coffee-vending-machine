@@ -2,8 +2,6 @@ from tkinter import *
 from PIL import Image, ImageTk
 # from proceso import ProcesoAutomata
 
-
-
 # Funcion para validar combinaciones
 def validar(texto):
     combinaciones_permitidas = ["A1", "A2", "A3", "B1", "B2", "B3", "C1", "C2"]
@@ -13,21 +11,12 @@ def validar(texto):
         lbl_texto.config(text="ERROR", fg="red")
         root.after(1000, lambda: lbl_texto.config(text=""))
 
-# funcion para indicar la letra presionada y validar
-def btn_presionado(letra):
-    letras_presionadas.append(letra)
-    if len(letras_presionadas) == 2:
-        combinacion = ''.join(letras_presionadas)
-        if combinacion in combinaciones_permitidas:
-            lbl_texto.config(text=combinacion, fg="green")
-        else:
-            lbl_texto.config(text="ERROR", fg="red")
-            root.after(1000, lambda: limpiar_error())
-
-# Función para limpiar el error
-def limpiar_error():
-    lbl_texto.config(text="")
-    letras_presionadas.clear()
+# Funcion para cambiar el color del btn cuando se presiona
+def toggle_color():
+    if btn_circular['bg'] == 'red':
+        btn_circular.config(bg='green')
+    else:
+        btn_circular.config(bg='red')
 
 # Crear ventana
 root = Tk() 
@@ -49,9 +38,18 @@ def load_image(ruta, size_x, size_y):
     image = image.resize((size_x, size_y))
     return ImageTk.PhotoImage(image)
 
+# Funcion para crear un btn circular
+def create_circle_button(x, y):
+    btn_circular = Button(root, text="Presionar", command=toggle_color, bg='red', fg='white', borderwidth=0, width=10, height=2, relief="flat")
+    btn_circular.place(x=x, y=y)
+    btn_circular.config(width=btn_circular.winfo_height())  # Hacer el botón circular
+    return btn_circular
+
+
+
 # Cargar imagenes con/sin cafeina
-img_caffeinated= load_image("Images/caffeinated.jpg", 70, 70)
-img_decaffeinated= load_image("Images/decaffeinated.jpg", 70, 70)
+img_caffeinated= load_image("Images/caffeinated.jpg", 20, 20)
+img_decaffeinated= load_image("Images/decaffeinated.jpg", 20, 20)
 
 # Marco boton con cafeina o descafeinado
 type_of_coffee = Frame(root)
@@ -62,6 +60,11 @@ btn_img_decaffeinated = Button(type_of_coffee, image=img_decaffeinated, command=
 btn_img_decaffeinated.grid(row=0,column=1,padx=10)
 
 # Marco de botones para seleccionar tipo de cafe
+
+
+
+
+
 select_coffee = Frame(root)
 select_coffee.place(x=440,y=290)
 
@@ -99,16 +102,6 @@ btn_img_check.grid(row=2, column=1)
 btn_img_vanilla = Button(select_coffee, image=img_vanilla, command=lambda: btn_presionado("Con vainilla"))
 btn_img_vanilla.grid(row=2,column=2)
 
-# Crear un canvas para espacio donde ira el codigo de cafe
-canvas = Canvas(root, width=200, height=100)
-canvas.place(x=440, y=100)  # Coloca el canvas en la posición (100, 100) dentro de la ventana
-
-# Dibujar un rectángulo negro en el canvas
-canvas.create_rectangle(0, 25, 250, 75, fill="black")
-
-# Cuadro de texto para mostrar letras presionadas
-lbl_texto = Label(root, text="", bg="black", fg="green", font=("Arial", 24))
-lbl_texto.place(x=510, y=130)
 
 # Cargar imagenes de tipos de vaso
 img_coffee_size_small = load_image("Images/coffee_size.png", 50, 50)
@@ -125,36 +118,18 @@ btn_image_coffee_size_medium.grid(row=0,column=2)
 
 
 # FIXME cambiar sherk por imagenes reales
-# 8 bebidas de cafe a elegir
+#imagen de  cafe con marca
 drink_coffee = Frame(root)
-drink_coffee.place(x=50,y=170)
+drink_coffee.place(x=30,y=170)
 
-# Cargar imagenes de cafe
-img_coffee1 = load_image("Images/sherk.jpg", 70, 70)
+# Cargar una sola imagen cafe (imagen representativa de la marca de cafe)
+img_coffee1 = load_image("Images/sherk.jpg", 370, 370)
 
 lbl_img_coffee1 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee1.grid(row=0, column=0, padx=20,pady=20)
+lbl_img_coffee1.grid(row=0, column=0)
 
-lbl_img_coffee2 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee2.grid(row=0, column=1, padx=20,pady=20)
+#imagen de la bandeja donde se entregara el cafe
 
-lbl_img_coffee3 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee3.grid(row=0, column=2, padx=20,pady=20)
-
-lbl_img_coffee4 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee4.grid(row=1, column=0, padx=20,pady=20)
-
-lbl_img_coffee5 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee5.grid(row=1, column=1, padx=20,pady=20)
-
-lbl_img_coffee6 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee6.grid(row=1, column=2, padx=20,pady=20)
-
-lbl_img_coffee7 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee7.grid(row=2, column=0, padx=20,pady=20)
-
-lbl_img_coffee8 = Label(drink_coffee, image=img_coffee1)
-lbl_img_coffee8.grid(row=2, column=2, padx=20,pady=20)
 
 
 

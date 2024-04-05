@@ -1,29 +1,34 @@
-# from automata.fa.dfa import DFA
-# class ProcesoAutomata:
-#     def __init__(self, entrada):
-#         self.entrada = entrada
+"""
+Se selecciona el tipo de café, luego se escoge entre descafeinado o con cafeina, luego el tamaño del vaso
 
-#     def validarCadena(self):
-#         dfa = DFA(
-#             states={'q0', 'q1', 'q2', 'q3', 'q4'},
-#             input_symbols={'h','o','l','a'},
-#             transitions={
-#                 'q0': {'h': 'q1', 'o': 'q0', 'l': 'q0', 'a': 'q0'},
-#                 'q1': {'h': 'q0', 'o': 'q2', 'l': 'q0', 'a': 'q0'},
-#                 'q2': {'h': 'q1', 'o': 'q0', 'l': 'q3', 'a': 'q0'},
-#                 'q3': {'h': 'q1', 'o': 'q0', 'l': 'q0', 'a': 'q4'},
-#                 'q4': {'h': 'q0', 'o': 'q0', 'l': 'q0', 'a': 'q4'}
-#             },
-#             initial_state='q0',
-#             final_states={'q4'}
-#         )
-#         try:
-#             if dfa.accepts_input(self.entrada):
-#                     print('Accepted')
-#             else:
-#                     print('Rejected')
-#         except KeyboardInterrupt:
-#             print('XD')
-            
+y al final se selecciona un añadido extra(opcional), Luego de esto se ingresa la moneda mediante botones,
+
+La moneda puede ser entre 4 tipos: 
+0.5, 1, 2 y 5 soles
+
+precios de cada cafe:
+                pequeño     mediano
+cafe negro      1.5         2.5
+espresso        2           3
+espresso doble  3.5         5
+americano       2.5         4
+capuccino       3           4.5
+Latte           3.5         5       
+Machiato        2.5         4   CONSIDERAR ELIMINAR
+Mocha o Mocca   4           6   CONSIDERAR ELIMINAR
+
+vaso pequeño: 150ml
+vaso mediano 250ml
+
+añadidos extra:
+vainilla (con precio extra)
+azucar (sin precio extra), por defecto sin azucar
+
+
+
+
+
+
+"""
         
 
