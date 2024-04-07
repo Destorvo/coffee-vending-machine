@@ -17,10 +17,8 @@ class automata_mec:
     def __init__(self, entrada):
         self.entrada = entrada
 
-
-
 # con cafeina, cafe negro, 2 soles 50 centimos (proceso, esto se agrega solo) sin añadidos extra, servir
-cadena = "SCN2.5" + "CPACCOFNASE" + "NASE"
+# cadena = "SCN==2.5CPACCOFNASE"
 
 # sin cafeina, cafe negro, 2 soles 50 centimos (proceso, esto se agrega solo) añadir vainilla, servir
 # cadena = "NCN205CPACCOFVSE"
@@ -28,54 +26,93 @@ cadena = "SCN2.5" + "CPACCOFNASE" + "NASE"
 # con cafeina, cafe negro, 5 soles(dinero incorrecto) (proceso, esto se agrega solo) sin añadidos extra, servir
 # cadena = "SCN5CPACCOFNASE"
 
-validar_cafeina = cadena [0:1]
-validar_tipo_de_cafe = cadena[1:3]
-validar_precio_cafe = cadena[3:6]
-print(validar_precio_cafe)
+# print(cadena[-2:])
 
-if (validar_cafeina == "S"):
-    print("Preparando cafe con cafeina")
+def validar_cadena(entrada):
+    validar_cafeina = entrada [0:1]
+    validar_tipo_de_cafe = entrada[1:3]
+    validar_precio_cafe = entrada[3:8]
 
-elif (validar_cafeina == "N"):
-    print("Preparando cafe descafeinado")  
+    if (validar_cafeina == "S"):
+        print("Preparando cafe con cafeina")
 
-if (validar_tipo_de_cafe == "CN"):
-    print("Cafe negro")
-    if(validar_precio_cafe == "2.5"):
-        print("Continuando con proceso de cafe negro...")
+    elif (validar_cafeina == "N"):
+        print("Preparando cafe descafeinado")  
+
+    if (validar_tipo_de_cafe == "CN"):
+        print("Cafe negro")
+        if(validar_precio_cafe == "==2.5"):
+            print("Continuando con proceso de cafe negro...")
+            # PROCESO PARA CAFÉ NEGRO
+            
+
+        elif(validar_precio_cafe == "!=2.5"):
+            # DEVOLVER MENSAJE DE ERROR
+            return "Cantidad de monedas incorrecta, devolviendo dinero..."
+
+    elif (validar_tipo_de_cafe == "ES"):
+        print("Cafe Espresso")        
+        if(validar_precio_cafe == "==3.0"):
+            print("Continuando con proceso de cafe Espresso...")
+            # PROCESO PARA CAFÉ ESPRESSO
+
+
+
+        elif(validar_precio_cafe == "!=3.0"):
+            return "Cantidad de monedas incorrecta, devolviendo dinero..."
+
+    elif (validar_tipo_de_cafe == "AM"):
+        print("Cafe Americano")        
+        if(validar_precio_cafe == "==4.0"):
+            print("Continuando con proceso de cafe Americano...")
+            # PROCESO PARA CAFÉ AMERICANO
+
+
+
+        elif(validar_precio_cafe == "!=4.0"):
+            return "Cantidad de monedas incorrecta, devolviendo dinero..."
+
+    elif (validar_tipo_de_cafe == "CA"):
+        print("Cafe Capuccino")        
+        if(validar_precio_cafe == "==4.5"):
+            print("Continuando con proceso de cafe Capuccino...")
+            # PROCESO PARA CAFÉ CAPUCCINO
+
+
+
+        elif(validar_precio_cafe == "!=4.5"):
+            return "Cantidad de monedas incorrecta, devolviendo dinero..."
+
+    elif (validar_tipo_de_cafe == "LA"):
+        print("Cafe Latte")
+        if(validar_precio_cafe == "==5.0"):
+            print("Continuando con proceso de cafe Latte...")
+            # PROCESO PARA CAFÉ LATTE
+
+
+        elif(validar_precio_cafe == "!=5.0"):            
+            return "Cantidad de monedas incorrecta, devolviendo dinero..."
+    
+    if (entrada[-4:-2]=="NA"):
+        print("No agregados extra")
+    elif (entrada[-4:-2]=="VA"):
+        print("Agregando vainilla...")
+    elif (entrada[-4:-2]=="AZ"):
+        print("Agregando azucar...")
+    elif (entrada[-4:-2]=="VZ"):
+        print("Agregando vainilla y azucar...")
+    if (entrada[-2:]=="SE"):
+        print("Sirviendo cafe...")
+        # DEVOLVER MENSAJE DE CAFE NEGRO ENTREGADO CORRECTAMENTE
+        return "Cafe entregado correctamente"
     else:
-        print("No se pudo continuar, volviendo al inicio...")
-
-elif (validar_tipo_de_cafe == "ES"):
-    print("Cafe Espresso")        
-    if(validar_precio_cafe == "3.0"):
-        print("Continuando con proceso de cafe Espresso...")
-    else:
-        print("No se pudo continuar, volviendo al inicio...")
-
-elif (validar_tipo_de_cafe == "AM"):
-    print("Cafe Americano")        
-    if(validar_precio_cafe == "4.0"):
-        print("Continuando con proceso de cafe Americano...")
-    else:
-        print("No se pudo continuar, volviendo al inicio...")
-
-elif (validar_tipo_de_cafe == "CA"):
-    print("Cafe Capuccino")        
-    if(validar_precio_cafe == "4.5"):
-        print("Continuando con proceso de cafe Capuccino...")
-    else:
-        print("No se pudo continuar, volviendo al inicio...")
-
-elif (validar_tipo_de_cafe == "LA"):
-    print("Cafe Latte")
-    if(validar_precio_cafe == "5.0"):
-        print("Continuando con proceso de cafe Latte...")
-    else:
-        print("No se pudo continuar, volviendo al inicio...")
+        return "Error: Se ingreso una cadena no valida"
 
 
 
+
+
+""""
 # con cafeina, cafe negro 2 soles 50 centimos (proceso, esto se agrega solo) sin añadidos extra, servir
 cadena = "SLA5CPACCOFNASE"
 
@@ -87,3 +124,4 @@ cadena = "SCN205CPACCOFNASE"
 
 # con cafeina, cafe negro 2 soles 50 centimos (proceso, esto se agrega solo) sin añadidos extra, servir
 cadena = "SCN205CPACCOFNASE"
+"""

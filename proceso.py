@@ -7,12 +7,12 @@ La moneda puede ser entre 4 tipos:
 0.5, 1, 2 y 5 soles
 
 precios de cada cafe:
-                pequeño     mediano
-cafe negro (CN)     1.5         2.5
-espresso (ES)       2           3
-americano (AM)       2.5         4
-capuccino (CA)       3           4.5
-Latte (LA)           3.5         5       
+                    
+cafe negro (CN)        2.5
+espresso (ES)           3
+americano (AM)          4
+capuccino (CA)          4.5
+Latte (LA)              5       
 
 Agregados extra:
 
@@ -26,6 +26,9 @@ vaso 250ml
 añadidos extra:
 vainilla (con precio extra)
 azucar (sin precio extra), por defecto sin azucar
+
+Al ingresar dinero incorrecto, devuelve dinero ingresado
+
 
 """
         
