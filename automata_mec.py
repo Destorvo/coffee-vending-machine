@@ -75,6 +75,7 @@ def validar_cadena(entrada):
         if(validar_precio_cafe == "==4.5"):
             print("Continuando con proceso de cafe Capuccino...")
             # PROCESO PARA CAFÉ CAPUCCINO
+            
 
 
 

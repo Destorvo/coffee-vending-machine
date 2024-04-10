@@ -19,7 +19,7 @@ def load_image(ruta, size_x, size_y):
 # Función para imprimir los valores de las cadenas
 # Función para imprimir los valores de las cadenas
 def print_strings():
-    global precio_validado, cadena
+    global precio_validado, cadena, precio_ingresado_value
 
         
     # Determinar el precio del café seleccionado
@@ -55,6 +55,8 @@ def print_strings():
     print("Cadena:", cadena)
     print("=======================")    
     print(validar_cadena(cadena))
+    
+    precio_ingresado_value = 0
 
 
 # Función para actualizar el tipo de cafe según la selección
@@ -186,22 +188,17 @@ z_vainilla.trace_add("write", lambda *args: update_extra())
 z_azucar.trace_add("write", lambda *args: update_extra())
 
 
-
-
-
 # BOTONES PARA INDICAR MONEDAS INGRESADAS
 # APRETABLES MaS DE 1 VEZ, VARIAS OPCIONES
 # Seleccionar moneda ingresada
 
 # Botones para indicar moneda ingresada
-tipo_moneda = [0.5, 1, 2, 5]
+tipo_moneda = [0.5, 1, 2]
 w = IntVar()
 w.set(-1)
 
  # Inicializar el precio ingresado
-precio_ingresado_value= 0 
-
-
+precio_ingresado_value= 0
 
 for index in range(len(tipo_moneda)):
     radiobutton = Radiobutton(root,
@@ -214,12 +211,10 @@ for index in range(len(tipo_moneda)):
     if index == 0:
         radiobutton.place(x=450, y=470)  # Primer botón en la posición especificada
     elif index == 1:
-        radiobutton.place(x=450, y=560)  # Segundo botón debajo del primer botón
-    elif index == 2:
-        radiobutton.place(x=550, y=470)  # Tercer botón al lado del primer botón
+        radiobutton.place(x=500, y=560)  # Segundo botón debajo del primer botón
     else:
-        radiobutton.place(x=550, y=560)  # Cuarto botón debajo del tercer botón
-    
+        radiobutton.place(x=550, y=470)  # Tercer botón al lado del primer botón
+        
     # Llamar a la función para marcar el botón
     radiobutton.bind("<ButtonPress-1>", lambda event, index=index: marcar_boton(index))
 
