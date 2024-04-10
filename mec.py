@@ -55,8 +55,6 @@ def print_strings():
     print("Cadena:", cadena)
     print("=======================")    
     print(validar_cadena(cadena))
- 
-
 
 
 # Función para actualizar el tipo de cafe según la selección
@@ -104,7 +102,7 @@ extra_value = StringVar()
 drink_coffee = Frame(root)
 drink_coffee.place(x=30,y=170)
 # Cargar una sola imagen cafe (imagen representativa de la marca de cafe)
-img_coffee1 = load_image("images/java.png", 370, 370)
+img_coffee1 = load_image("images/java.png", 350, 370)
 lbl_img_coffee1 = Label(drink_coffee, image=img_coffee1)
 lbl_img_coffee1.grid(row=0, column=0)
 
@@ -125,7 +123,7 @@ for index in range(len(cafeina_descafeinado)):
     # radiobutton.pack(anchor=W)
 
 # Botón para imprimir el valor del string
-btn_print_string = Button(root, text="Imprimir valor del string", command=print_strings)
+btn_print_string = Button(root, text="Entregar cafe", command=print_strings)
 btn_print_string.place(x=440, y=700 + len(cafeina_descafeinado) * 30)  # Posicionamos el botón debajo de los radio buttons
 
 
@@ -154,7 +152,7 @@ for index in range(len(tipo_de_cafe)):
                               value=index,
                               font=50,
                               command=lambda: update_tipo_cafe(y.get()))    
-    radiobutton.place(x=410,y=210+index*40)
+    radiobutton.place(x=370,y=210+index*40)
 
 # String para almacenar el valor seleccionado de tipo de cafe
 tipo_cafe_value = ""
@@ -194,9 +192,6 @@ z_azucar.trace_add("write", lambda *args: update_extra())
 # BOTONES PARA INDICAR MONEDAS INGRESADAS
 # APRETABLES MaS DE 1 VEZ, VARIAS OPCIONES
 # Seleccionar moneda ingresada
-
-
-
 
 # Botones para indicar moneda ingresada
 tipo_moneda = [0.5, 1, 2, 5]

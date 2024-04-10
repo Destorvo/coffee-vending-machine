@@ -2,15 +2,12 @@
 Las cadenas que acepta el autómata(crea la máquina) para que pueda servir el cafe son:
 
 (S | N) ( CN | ES | AM | CA | LA ) ( 2.5 | 3.0 | 4.0 | 4.5 | 5.0 ) ( EL PROCESO, LA MAQUINA LO AGREGA
-A LA CADENA LUEGO DE ESCOGER EL TIPO DE CAFE ) ( V | A | NA ) SE
+A LA CADENA LUEGO DE ESCOGER EL TIPO DE CAFE ) ( VA | AZ | VZ | NA ) SE
 
 Las cadenas que acepta el autómata para regresar al inicio y no servir cafe son:
 
-(S | N) ( CN | ES | AM | CA | LA ) ( CUALQUIER PRECIO DIFERENTE A LOS ESTABLECIDOS ) <- AQUI EL AUTOMATA VUELVE
-AL INICIO PORQUE VALIDARA EL PRECIO Y SERA INCORRETO
-
- ( EL PROCESO, LA MAQUINA LO AGREGA
-A LA CADENA LUEGO DE ESCOGER EL TIPO DE CAFE ) ( V | A | NA ) SE
+(S | N) ( CN | ES | AM | CA | LA ) ( CUALQUIER PRECIO DIFERENTE A LOS ESTABLECIDOS ) ( EL PROCESO, LA MAQUINA LO AGREGA
+A LA CADENA LUEGO DE ESCOGER EL TIPO DE CAFE ) ( VA | AZ | VZ | NA ) SE
 
 """
 class automata_mec:
@@ -38,13 +35,14 @@ def validar_cadena(entrada):
 
     elif (validar_cafeina == "N"):
         print("Preparando cafe descafeinado")  
-
+    else:
+        return "Por favor, seleccione entre café descafeinado o con cafeina para continuar..."
+    
     if (validar_tipo_de_cafe == "CN"):
         print("Cafe negro")
         if(validar_precio_cafe == "==2.5"):
             print("Continuando con proceso de cafe negro...")
-            # PROCESO PARA CAFÉ NEGRO
-            
+            # PROCESO PARA CAFÉ NEGRO            
 
         elif(validar_precio_cafe == "!=2.5"):
             # DEVOLVER MENSAJE DE ERROR
@@ -91,7 +89,7 @@ def validar_cadena(entrada):
 
 
         elif(validar_precio_cafe == "!=5.0"):            
-            return "Cantidad de monedas incorrecta, devolviendo dinero..."
+            return "Cantidad de monedas incorrecta, devolviendo dinero...\n\n"
     
     if (entrada[-4:-2]=="NA"):
         print("No agregados extra")
@@ -104,9 +102,9 @@ def validar_cadena(entrada):
     if (entrada[-2:]=="SE"):
         print("Sirviendo cafe...")
         # DEVOLVER MENSAJE DE CAFE NEGRO ENTREGADO CORRECTAMENTE
-        return "Cafe entregado correctamente"
+        return "Cafe entregado correctamente\n\n"
     else:
-        return "Error: Se ingreso una cadena no valida"
+        return "Error: Se ingreso una cadena invalida\n\n"
 
 
 
