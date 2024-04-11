@@ -1,7 +1,11 @@
 """
-Se selecciona el tipo de café, luego se escoge entre descafeinado o con cafeina, luego el tamaño del vaso
 
-y al final se selecciona un añadido extra(opcional), Luego de esto se ingresa la moneda mediante botones,
+PONER NOMBRES A CADA ESTADO, PARA DAR MEJOR COMPRENSIÓN, EJEMPLO
+se llega a cafe negro : CN
+
+
+Se selecciona el tipo de café, luego se escoge entre descafeinado o con cafeina,
+luego se selecciona un añadido extra(opcional), Luego de esto se ingresa la moneda mediante botones,
 
 La moneda puede ser entre 4 tipos: 
 0.5, 1, 2 y 5 soles
