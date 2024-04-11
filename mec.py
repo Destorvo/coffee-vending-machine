@@ -19,20 +19,25 @@ def load_image(ruta, size_x, size_y):
 # Función para imprimir los valores de las cadenas
 # Función para imprimir los valores de las cadenas
 def print_strings():
-    global precio_validado, cadena
+    global precio_validado, cadena, precio_ingresado_value, preparacion_cafe
 
         
     # Determinar el precio del café seleccionado
     precio_cafe = 0
     if tipo_cafe_value == "CN":
+        preparacion_cafe = "CPACCOF"
         precio_cafe = 2.5
     elif tipo_cafe_value == "ES":
+        preparacion_cafe = "CPCOFACP"
         precio_cafe = 3.0
     elif tipo_cafe_value == "AM":
+        preparacion_cafe = "CPCOFACPAC"
         precio_cafe = 4.0
     elif tipo_cafe_value == "CA":
+        preparacion_cafe = "CPCOFACPLEESP"
         precio_cafe = 4.5
     elif tipo_cafe_value == "LA":
+        preparacion_cafe = "CPCOFACPLEESPCC"
         precio_cafe = 5.0
     else:
         print("Error: No se ha seleccionado un tipo de cafe válido.")
@@ -45,7 +50,7 @@ def print_strings():
         precio_validado = "!={}".format(precio_cafe)
 
     # Crear la cadena
-    cadena = cafeina_descafeinado_value + tipo_cafe_value + precio_validado + extra_value.get() + "SE"
+    cadena = cafeina_descafeinado_value + tipo_cafe_value + precio_validado + preparacion_cafe + extra_value.get() + "SE"
 
     print("Tipo de cafe seleccionado:", tipo_cafe_value)
     print("Con cafeina o descafeinado:", cafeina_descafeinado_value)
@@ -55,8 +60,8 @@ def print_strings():
     print("Cadena:", cadena)
     print("=======================")    
     print(validar_cadena(cadena))
- 
-
+    
+    precio_ingresado_value = 0
 
 
 # Función para actualizar el tipo de cafe según la selección
@@ -104,7 +109,7 @@ extra_value = StringVar()
 drink_coffee = Frame(root)
 drink_coffee.place(x=30,y=170)
 # Cargar una sola imagen cafe (imagen representativa de la marca de cafe)
-img_coffee1 = load_image("images/java.png", 370, 370)
+img_coffee1 = load_image("images/java.png", 350, 370)
 lbl_img_coffee1 = Label(drink_coffee, image=img_coffee1)
 lbl_img_coffee1.grid(row=0, column=0)
 
@@ -125,7 +130,7 @@ for index in range(len(cafeina_descafeinado)):
     # radiobutton.pack(anchor=W)
 
 # Botón para imprimir el valor del string
-btn_print_string = Button(root, text="Imprimir valor del string", command=print_strings)
+btn_print_string = Button(root, text="Entregar cafe", command=print_strings)
 btn_print_string.place(x=440, y=700 + len(cafeina_descafeinado) * 30)  # Posicionamos el botón debajo de los radio buttons
 
 
@@ -154,7 +159,7 @@ for index in range(len(tipo_de_cafe)):
                               value=index,
                               font=50,
                               command=lambda: update_tipo_cafe(y.get()))    
-    radiobutton.place(x=410,y=210+index*40)
+    radiobutton.place(x=370,y=210+index*40)
 
 # String para almacenar el valor seleccionado de tipo de cafe
 tipo_cafe_value = ""
@@ -188,25 +193,17 @@ z_vainilla.trace_add("write", lambda *args: update_extra())
 z_azucar.trace_add("write", lambda *args: update_extra())
 
 
-
-
-
 # BOTONES PARA INDICAR MONEDAS INGRESADAS
 # APRETABLES MaS DE 1 VEZ, VARIAS OPCIONES
 # Seleccionar moneda ingresada
 
-
-
-
 # Botones para indicar moneda ingresada
-tipo_moneda = [0.5, 1, 2, 5]
+tipo_moneda = [0.5, 1, 2]
 w = IntVar()
 w.set(-1)
 
  # Inicializar el precio ingresado
-precio_ingresado_value= 0 
-
-
+precio_ingresado_value= 0
 
 for index in range(len(tipo_moneda)):
     radiobutton = Radiobutton(root,
@@ -219,12 +216,10 @@ for index in range(len(tipo_moneda)):
     if index == 0:
         radiobutton.place(x=450, y=470)  # Primer botón en la posición especificada
     elif index == 1:
-        radiobutton.place(x=450, y=560)  # Segundo botón debajo del primer botón
-    elif index == 2:
-        radiobutton.place(x=550, y=470)  # Tercer botón al lado del primer botón
+        radiobutton.place(x=500, y=560)  # Segundo botón debajo del primer botón
     else:
-        radiobutton.place(x=550, y=560)  # Cuarto botón debajo del tercer botón
-    
+        radiobutton.place(x=550, y=470)  # Tercer botón al lado del primer botón
+        
     # Llamar a la función para marcar el botón
     radiobutton.bind("<ButtonPress-1>", lambda event, index=index: marcar_boton(index))
 
