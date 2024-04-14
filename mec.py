@@ -19,9 +19,7 @@ def load_image(ruta, size_x, size_y):
 # Función para imprimir los valores de las cadenas
 # Función para imprimir los valores de las cadenas
 def print_strings():
-    global precio_validado, cadena, precio_ingresado_value, preparacion_cafe
-
-        
+    global precio_validado, cadena, precio_ingresado_value, preparacion_cafe, cafeina_descafeinado_value     
     # Determinar el precio del café seleccionado
     precio_cafe = 0
     if tipo_cafe_value == "CN":
@@ -62,7 +60,12 @@ def print_strings():
     print(validar_cadena(cadena))
     
     precio_ingresado_value = 0
-
+    cafeina_descafeinado_value = ""
+    x.set(-1)
+    y.set(-1)
+    z_vainilla.set(False)
+    z_azucar.set(False)
+    w.set(-1)
 
 # Función para actualizar el tipo de cafe según la selección
 def update_tipo_cafe(value):
@@ -101,7 +104,6 @@ def marcar_boton(index):
     w.set(index)
     root.after(500, desmarcar_boton)  # Desmarcar el botón después de 500 milisegundos (medio segundo)
 
-
 # String para almacenar el valor seleccionado de Vainilla/Azúcar
 extra_value = StringVar()
 
@@ -112,7 +114,6 @@ drink_coffee.place(x=30,y=170)
 img_coffee1 = load_image("images/java.png", 350, 370)
 lbl_img_coffee1 = Label(drink_coffee, image=img_coffee1)
 lbl_img_coffee1.grid(row=0, column=0)
-
 
 # RADIO BUTTONS
 # Seleccionar con cafeina, sin cafeina
@@ -140,14 +141,14 @@ cafeina_descafeinado_value = ""
 
 # Seleccionar tipo de cafe
 # Tipos de cafe
-tipo_de_cafe = ["Cafe negro (CN)", "Espresso (ES)", "Americano (AM)", "Capuccino (CA)", "Latte (LA)"]
+tipo_de_cafe = ["Cafe negro (2.5)", "Espresso (3.0)", "Americano (4.0)", "Capuccino (4.5)", "Latte (5.0)"]
 # Diccionario para mapear nombres de tipos de café a abreviaturas
 tipo_cafe_codigos = {
-    "Cafe negro (CN)": "CN",
-    "Espresso (ES)": "ES",
-    "Americano (AM)": "AM",
-    "Capuccino (CA)": "CA",
-    "Latte (LA)": "LA"
+    "Cafe negro (2.5)": "CN",
+    "Espresso (3.0)": "ES",
+    "Americano (4.0)": "AM",
+    "Capuccino (4.5)": "CA",
+    "Latte (5.0)": "LA"
 }
 
 y = IntVar()
@@ -164,13 +165,11 @@ for index in range(len(tipo_de_cafe)):
 # String para almacenar el valor seleccionado de tipo de cafe
 tipo_cafe_value = ""
 
-
 # BOTONES PARA AGREGADOS EXTRA
 # MARCAR, DESMARCAR, 1 SOLO, NINGUNO, O LOS DOS
 agregado_extra = ["Vainilla", "Azucar"]
 z_vainilla = BooleanVar()
 z_azucar = BooleanVar()
-
 
 # Botones para Vainilla y Azucar
 btn_vainilla = Checkbutton(root, text="Vainilla", variable=z_vainilla, onvalue=True, offvalue=False, font=50)
@@ -182,7 +181,6 @@ btn_azucar.place(x=560, y=250)    # Posicionar botón "Azucar"
 # Variables de control para la extra_value
 extra_value = StringVar()
 extra_value.set("NA")
-
 
 # Etiqueta para mostrar la cadena actual
 lbl_cadena = Label(root, textvariable=extra_value)
@@ -223,11 +221,7 @@ for index in range(len(tipo_moneda)):
     # Llamar a la función para marcar el botón
     radiobutton.bind("<ButtonPress-1>", lambda event, index=index: marcar_boton(index))
 
-
 # imagen de la bandeja donde se entregara el cafe
-
-
-
 
 # Inicializar ventana
 root.mainloop()

@@ -29,12 +29,15 @@ def validar_cadena(entrada):
     
     if (validar_tipo_de_cafe == "CN"):
         print("Cafe negro")
-        if(validar_precio_cafe == "==2.5"):
-            print("Continuando con proceso de cafe negro...")
+        if (validar_precio_cafe == "==2.5"):
+            print("Continuando con proceso de café negro...")
             # PROCESO PARA CAFÉ NEGRO
-            print("Cargando el portafiltro y poniendo el vaso ... ")
-            print("Agregando agua caliente...")
-            print("Agregando cafe molido ...")
+            if (entrada[8:10] == "CP"):
+                print("Cargando portafiltro y colocando vaso... ")
+            if (entrada[10:12] == "AC"):
+                print("Agregando agua caliente...")
+            if (entrada[12:15] == "COF"):
+                print("Agregando cafe molido...")
 
         elif (validar_precio_cafe == "!=2.5"):
             # DEVOLVER MENSAJE DE ERROR
@@ -42,14 +45,16 @@ def validar_cadena(entrada):
 
     elif (validar_tipo_de_cafe == "ES"):
         print("Cafe Espresso")        
-        if(validar_precio_cafe == "==3.0"):
-            print("Continuando con proceso de cafe Espresso...")
+        if (validar_precio_cafe == "==3.0"):
+            print("Continuando con proceso de café Espresso...")
             # PROCESO PARA CAFÉ ESPRESSO
-            print("Cargando el portafiltro y colocando el vaso ... ")
-            print("Agregando café molido ...")
-            print("Agregando agua caliente a presión ...")
-
-        elif(validar_precio_cafe == "!=3.0"):
+            if (entrada[8:10] == "CP"):
+                print("Cargando portafiltro y colocando vaso ... ")
+            if (entrada[10:13] == "COF"):
+                print("Agregando café molido...")                
+            if (entrada[13:16] == "ACP"):
+                print("Agregando agua caliente a presión...")
+        elif (validar_precio_cafe == "!=3.0"):
             return "Cantidad de monedas incorrecta, devolviendo dinero..."
 
     elif (validar_tipo_de_cafe == "AM"):
@@ -57,40 +62,52 @@ def validar_cadena(entrada):
         if(validar_precio_cafe == "==4.0"):
             print("Continuando con proceso de cafe Americano...")
             # PROCESO PARA CAFÉ AMERICANO
-            print("Cargando el portafiltro y colocando el vaso ... ")
-            print("Agregando café molido ...")
-            print("Agregando agua caliente a presión ...")
-            print("Agregando agua caliente final ... ")
-
+            if (entrada[8:10] == "CP"):
+                print("Cargando portafiltro y colocando vaso ... ")
+            if (entrada[10:13] == "COF"):
+                print("Agregando café molido...")                
+            if (entrada[13:16] == "ACP"):
+                print("Agregando agua caliente a presión...")
+            if (entrada[16:18] == "AC"):
+                print("Agregando agua caliente...")
         elif(validar_precio_cafe == "!=4.0"):
             return "Cantidad de monedas incorrecta, devolviendo dinero..."
 
     elif (validar_tipo_de_cafe == "CA"):
         print("Cafe Capuccino")        
         if(validar_precio_cafe == "==4.5"):
-            print("Continuando con proceso de cafe Capuccino...")
+            print("Continuando con proceso de café Capuccino...")
             # PROCESO PARA CAFÉ CAPUCCINO
-            print("Cargando el portafiltro y colocando el vaso ... ")
-            print("Agregando café molido ...")
-            print("Agregando agua caliente a presión ...")
-            print("Agregando Leche ... ")
-            print("Agregando espuma de leche  ... ")
-
+            if (entrada[8:10] == "CP"):
+                print("Cargando portafiltro y colocando vaso ... ")
+            if (entrada[10:13] == "COF"):
+                print("Agregando café molido...")                
+            if (entrada[13:16] == "ACP"):
+                print("Agregando agua caliente a presión...")
+            if (entrada[16:18] == "LE"):
+                print("Agregando leche...")
+            if (entrada[18:21] == "ESP"):
+                print("Agregando espuma de leche...")
         elif(validar_precio_cafe == "!=4.5"):
             return "Cantidad de monedas incorrecta, devolviendo dinero..."
 
     elif (validar_tipo_de_cafe == "LA"):
         print("Cafe Latte")
         if(validar_precio_cafe == "==5.0"):
-            print("Continuando con proceso de cafe Latte...")
-            # PROCESO PARA CAFÉ LATTE
-            print("Cargando el portafiltro y colocando el vaso ... ")
-            print("Agregando café molido ...")
-            print("Agregando agua caliente a presión ...")
-            print("Agregando Leche ... ")
-            print("Cargando espuma de leche ... ")
-            print("Agregando cacao ...")
-
+            print("Continuando con proceso de café Latte...")
+            # PROCESO PARA CAFÉ LATTE            
+            if (entrada[8:10] == "CP"):
+                print("Cargando portafiltro y colocando vaso ... ")
+            if (entrada[10:13] == "COF"):
+                print("Agregando café molido...")                
+            if (entrada[13:16] == "ACP"):
+                print("Agregando agua caliente a presión...")
+            if (entrada[16:18] == "LE"):
+                print("Agregando leche...")
+            if (entrada[18:21] == "ESP"):
+                print("Agregando espuma de leche...")
+            if (entrada[21:23] == "CC"):
+                print("Agregando cacao...")
         elif(validar_precio_cafe == "!=5.0"):            
             return "Cantidad de monedas incorrecta, devolviendo dinero...\n\n"
     
